@@ -10,7 +10,7 @@
     <link rel="icon" href="https://www.freepik.com/icon/samurai_6981183#fromView=keyword&page=1&position=11&uuid=4f44494c-bd1e-4308-a856-0739337b3937" type="image/png">
 
     <!-- Link to the stylesheet located in the static folder -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
     <!-- Smooth Scroll (optional but useful for scroll behavior) -->
     <style>
@@ -39,100 +39,68 @@
 
     <hr>
 
-    <!-- Form Section -->
+    <!-- Form Section (initially hidden and will appear on scroll) -->
     <section class="form-section" id="form-section">
         <div class="container">
             <header>
                 <h1>Enter Your Text</h1>
             </header>
-            <form id="summarize-form">
-                <textarea class="form" id="text" rows="20" cols="50" required placeholder="Paste your text here to get a summary."></textarea>
+            <form method="POST" action="/summarize" class="formal">
+                <textarea class="form" id="text" name="text" rows="20" cols="50" required>{{ original_text if original_text else '' }}</textarea>
                 <br><br>
                 <button type="submit">Summarize Text</button>
             </form>
 
-            <!-- Summary Section (shown after form submission) -->
-            <div id="summary-section" class="glass" style="display:none;">
+            <!-- Summary Section (also shown after form submission) -->
+            {% if summary %}
+            <div class="glass">
                 <h2>Summary:</h2>
-                <p id="summary-text"></p>
+                <p>{{ summary }}</p>
             </div>
+            {% endif %}
 
             <!-- Sentiment Analysis Section (shown after form submission) -->
-            <div id="sentiment-section" class="glass" style="display:none;">
+            {% if sentiment %}
+            <div class="glass">
                 <h2>Sentiment Analysis:</h2>
-                <p id="sentiment"></p>
-                <p id="confidence-score"></p>
+                <p>Sentiment: <strong>{{ sentiment }}</strong></p>
+                <p>Confidence Score: <strong>{{ sentiment_score }}</strong></p>
             </div>
-
-            <!-- Error Section (if something goes wrong with the API) -->
-            <div id="error-section" class="error-section" style="display:none;">
-                <p id="error-message"></p>
-            </div>
+            {% endif %}
         </div>
     </section>
 
+    <!-- Error Section (if something goes wrong with the API) -->
+    {% if error %}
+    <div class="error-section">
+        <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
     <hr>
 
-    <!-- Deployment Process Section -->
+    <!-- Deployment Process Section (explains how to deploy the app) -->
     <section class="process-section" id="process">
         <div class="container">
             <header>
                 <h1>About</h1>
             </header>
-            <p>"The BART model (Bidirectional and Auto-Regressive Transformers) is a state-of-the-art AI model developed by Facebook AI for natural language processing tasks like text summarization. By combining the strengths of both bidirectional encoding (similar to BERT) and autoregressive decoding (like GPT), BART excels at understanding and generating coherent summaries. It's highly accurate, efficient, and can handle various types of text, making it perfect for quickly generating meaningful insights from long documents."</p>
+            "The BART model (Bidirectional and Auto-Regressive Transformers) is a state-of-the-art AI model developed by Facebook AI for natural language processing tasks like text summarization. By combining the strengths of both bidirectional encoding (similar to BERT) and autoregressive decoding (like GPT), BART excels at understanding and generating coherent summaries. It's highly accurate, efficient, and can handle various types of text, making it perfect for quickly generating meaningful insights from long documents."
         </div>
     </section>
 
     <hr>
 
-    <!-- Add JavaScript for API interaction -->
+    <!-- Add JavaScript for Scroll Animation -->
     <script>
-        document.getElementById('summarize-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
+        // Function to handle scroll-triggered animations
+        window.addEventListener('scroll', function() {
+            const formSection = document.getElementById('form-section');
+            const formPosition = formSection.getBoundingClientRect().top;
 
-            const text = document.getElementById('text').value.trim();
-            if (!text) {
-                alert("Please enter some text!");
-                return;
-            }
-
-            const HF_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
-            const HUGGINGFACE_API_KEY = "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";
-            const headers = {
-                "Authorization": `Bearer ${HUGGINGFACE_API_KEY}`,
-                "Content-Type": "application/json"
-            };
-            const data = { inputs: text };
-
-            try {
-                const response = await fetch(HF_URL, {
-                    method: 'POST',
-                    headers: headers,
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    const result = await response.json();
-                    const summary = result[0].summary_text;
-
-                    // Show the summary
-                    document.getElementById('summary-text').textContent = summary;
-                    document.getElementById('summary-section').style.display = 'block';
-
-                    // Example: Show Sentiment Analysis (if you want to add it later)
-                    // For now, let's assume it's a mock sentiment analysis
-                    const sentiment = "Positive";  // Example sentiment
-                    const confidence = "Confidence Score: 95%";  // Example confidence score
-
-                    document.getElementById('sentiment').textContent = `Sentiment: ${sentiment}`;
-                    document.getElementById('confidence-score').textContent = confidence;
-                    document.getElementById('sentiment-section').style.display = 'block';
-                } else {
-                    throw new Error("Error occurred while summarizing.");
-                }
-            } catch (error) {
-                document.getElementById('error-message').textContent = error.message;
-                document.getElementById('error-section').style.display = 'block';
+            // If the form section is scrolled into view
+            if (formPosition < window.innerHeight) {
+                formSection.classList.add('visible'); // Add the 'visible' class to trigger fade-in
             }
         });
     </script>
