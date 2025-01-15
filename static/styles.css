@@ -231,11 +231,12 @@ a:hover {
     }
 
     nav ul {
-    display:hidden;
+        display:none;
     }
 
     .glass {
         max-width: 80%;
+        min-height: 180px;
     }
 
     .form-section {
@@ -264,7 +265,8 @@ a:hover {
     }
 
     .glass {
-        max-width: 90%;
+        max-width: 80%;
+        min-height: 160px;
     }
 
     button {
