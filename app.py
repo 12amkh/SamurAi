@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 HF_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
 
-HUGGINGFACE_API_KEY = ""
+HUGGINGFACE_API_KEY = "REDACTED"
 
 headers = {
     "Authorization": f"Bearer {HUGGINGFACE_API_KEY}"
