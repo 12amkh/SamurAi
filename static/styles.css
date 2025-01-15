@@ -1,0 +1,209 @@
+/* styles.css */
+
+/* Set the background image for the Samurai theme */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.hdqwalls.com/wallpapers/the-way-of-samurai-k5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+}
+
+nav ul li {
+    margin:0 22% 0 3%;
+    padding: 0 0 5px 0;
+
+}
+nav ul li:hover{
+          background-color: rgba(255, 255, 255, 0.2);
+
+
+}
+nav ul li a {
+    color: #ffffff;
+    font-family: 'Noto Serif Thai', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+nav ul li a:hover {
+        text-decoration: none;
+
+}
+a:active{
+    text-decoration: none;
+}
+/* Full-screen Hero Section (Title + Description) */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    color: #ffff;
+    margin-top: 18%;
+    width: 96%;
+    margin-left: 10%;
+    margin-bottom: 15%;
+}
+
+.hero-content h1 {
+    font-family: 'Samurai', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+
+
+}
+
+.hero-content p {
+    font-family: 'Noto Serif Thai', sans-serif;
+    font-size: 1.2rem;
+    max-width: 900px;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+/* Model Section */
+.model-section, .process-section {
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 60px;
+    color: #ffffff;
+    text-align: center;
+        font-family: 'Noto Serif Thai', sans-serif;
+
+}
+
+/* Container for the form */
+.container {
+
+    border-radius: 15px;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Header with Samurai font */
+header h1 {
+    font-family: 'Noto Serif Thai', sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff; /* Gold color */
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+}
+.form{
+    width:70%;
+    display: inline-block;
+}
+.formal{
+    width: 50%;
+    display: inline-block;
+}
+/* Form Section */
+.form-section {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-out; /* Fade in effect when scrolled */
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20%;
+
+}
+
+.form-section.visible {
+    opacity: 1; /* Make visible when the user scrolls down */
+}
+
+/* Textarea styling */
+textarea {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    min-height: 150px;
+    background-color: #333;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+}
+
+/* Button styling */
+button {
+    background-color: #ffffff; /* Red color */
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #D7412A; /* Darker red on hover */
+}
+
+/* Glass effect for the output section */
+.glass {
+      background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    /* margin-top: 20px; */
+    border-radius: 12px;
+    max-width: 32%;
+    /* margin: 20px auto; */
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    margin-bottom: 20%;
+    font-family: 'Noto Serif Thai', sans-serif;
+    display: inline-block;
+
+}
+
+/* Error Section */
+.error-section {
+    background-color: rgba(255, 255, 255, 0.2); /* Red error background */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+hr {
+    background-color: #ffffffa8;
+    border: 1px solid #ffffff14;
+    width: 100%;
+}
+
+
+
+a:hover {
+    text-decoration: underline;
+}
