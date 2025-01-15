@@ -24,7 +24,6 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
-
 }
 
 nav ul {
@@ -36,29 +35,28 @@ nav ul {
 nav ul li {
     margin:0 22% 0 3%;
     padding: 0 0 5px 0;
-
 }
-nav ul li:hover{
-          background-color: rgba(255, 255, 255, 0.2);
 
-
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
+
 nav ul li a {
     color: #ffffff;
     font-family: 'Noto Serif Thai', sans-serif;
     font-size: 1.2rem;
     text-align: center;
     text-decoration: none;
-
 }
 
 nav ul li a:hover {
-        text-decoration: none;
-
-}
-a:active{
     text-decoration: none;
 }
+
+a:active {
+    text-decoration: none;
+}
+
 /* Full-screen Hero Section (Title + Description) */
 .hero-section {
     display: flex;
@@ -76,8 +74,6 @@ a:active{
     font-family: 'Samurai', sans-serif;
     font-size: 3rem;
     margin-bottom: 20px;
-
-
 }
 
 .hero-content p {
@@ -95,13 +91,11 @@ a:active{
     margin-top: 60px;
     color: #ffffff;
     text-align: center;
-        font-family: 'Noto Serif Thai', sans-serif;
-
+    font-family: 'Noto Serif Thai', sans-serif;
 }
 
 /* Container for the form */
 .container {
-
     border-radius: 15px;
     text-align: center;
     padding: 40px;
@@ -113,18 +107,21 @@ a:active{
 header h1 {
     font-family: 'Noto Serif Thai', sans-serif;
     font-size: 2.5rem;
-    color: #ffffff; /* Gold color */
+    color: #ffffff;
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
     margin-bottom: 20px;
 }
-.form{
-    width:70%;
+
+.form {
+    width: 70%;
     display: inline-block;
 }
-.formal{
+
+.formal {
     width: 50%;
     display: inline-block;
 }
+
 /* Form Section */
 .form-section {
     opacity: 0; /* Initially hidden */
@@ -133,7 +130,6 @@ header h1 {
     width: 100%;
     text-align: center;
     margin-top: 20%;
-
 }
 
 .form-section.visible {
@@ -171,25 +167,22 @@ button:hover {
 
 /* Glass effect for the output section */
 .glass {
-      background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     padding: 20px;
-    /* margin-top: 20px; */
     border-radius: 12px;
     max-width: 32%;
-    /* margin: 20px auto; */
     text-align: center;
     color: #fff;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
     margin-bottom: 20%;
     font-family: 'Noto Serif Thai', sans-serif;
     display: inline-block;
-
 }
 
 /* Error Section */
 .error-section {
-    background-color: rgba(255, 255, 255, 0.2); /* Red error background */
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
@@ -202,8 +195,85 @@ hr {
     width: 100%;
 }
 
-
-
 a:hover {
     text-decoration: underline;
+}
+
+/* Responsive Styles */
+
+/* For devices with a max width of 768px (Tablets and smaller) */
+@media (max-width: 768px) {
+    .hero-section {
+        margin-top: 10%;
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .form, .formal {
+        width: 100%;
+    }
+
+    .model-section, .process-section {
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .glass {
+        max-width: 80%;
+    }
+
+    .form-section {
+        margin-top: 10%;
+    }
+}
+
+/* For devices with a max width of 480px (Mobile Phones) */
+@media (max-width: 480px) {
+    .hero-section {
+        margin-top: 8%;
+        margin-left: 3%;
+        width: 94%;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .form-section {
+        margin-top: 5%;
+    }
+
+    .glass {
+        max-width: 90%;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
 }
