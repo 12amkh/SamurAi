@@ -30,6 +30,7 @@ def summarize():
         summary = response.json()[0]['summary_text']
         return render_template('index.html', summary=summary, original_text=text)
     else:
+        print(f"Hugging Face API Error: {response.status_code} - {response.text}")
         error_message = "There was an error with the Hugging Face API request."
         return render_template('index.html', error=error_message)
 
